@@ -1,0 +1,17 @@
+Ejercicios TEMA 1
+
+
+1- Cargar fichero "base_soc.csv"
+
+2- Cambiar el tipo de dato de la columna "venta_trimestral" a número decimal fijo.
+
+3- Guardar los cambios y como podrán observar tendremos varios errores.
+
+4- Visualizar estos errores en el editor de consulta y para poder tratarlos en la 
+	columna id_sucursal, reemplazaremos los errores por 1 y en la columna edad 
+	usaremos la opción de quitar errores.
+	
+
+
+
+

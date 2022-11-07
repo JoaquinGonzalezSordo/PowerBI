@@ -1,0 +1,28 @@
+Ejercicios TEMA 2
+
+1- Cargar fichero "base_soc.csv"
+
+2- Eliminar todas las columnas excepto id_cliente y id_sucursal.
+
+3- Guardar, aplicar y quitar los errores de la columna id_sucursal.
+
+4- Cargar otro fichero "Catalogo_sucursal.csv" 
+
+5- Ir a la pestaña modelo y como veremos no se ha creado ninguna relación. Cree una
+relación de uno a muchos. 
+	Notas: - A una sucursal le corresponden muchos clientes, pero a un clientes
+solo le corresponde una sucursal.
+		Si presenta problemas para hacer la relación, verifique que en la tabla de las sucursales
+		está todo correcto y en caso de que no pongalo como debe ir: Un columna de ID y otra con 
+		el nombre, sin repetición ni nulos.
+
+7- Cerramos y guardamos el trabajo que hemos hecho y cargamos ahora la base de datos
+	TSQL2012 que tenemos en el servidor de SQL Server: 
+	DESKTOP-RVKF6QU (En cada ordenador es distinto)
+
+
+8- Crea las siguientes relaciones 
+	a) Entre las tablas "Sales EmpOrders" y "HR Employees"
+	b) Entre las tablas "Sales OrderValues" y "HR Employees"
+	c)  Entre las tablas "Sales OrderValues" y "Sales Customers"
+	a) ¿Qué tipo de relación se ha creado? ¿Por qué?

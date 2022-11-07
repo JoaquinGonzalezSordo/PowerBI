@@ -1,0 +1,34 @@
+Ejemplos TEMA 3
+
+Usando el fichero "Dataset_curso_PBI.xlsx"
+
+1- Hacer un gráfico circular que me muestre la cantidad de clientes
+	clasificados por países.
+	
+	Valores: poner ID_Cliente
+	Leyenda: País
+
+2- Hacer un gráfico de barras apiladas horizontal que muestre las facturas 
+	cobradas por año y clasificadas por paises.
+	
+	Eje Y: FechaFactura (Año)
+	Eje X: ID_Factura
+	Leyenda: País 
+
+
+3- Hacer un gráfico de línea que represente los importes de facturas por meses.
+
+
+4- Hacer un gráfico que combine la cantidad de facturas con el importe por mes.
+
+
+5- Agregue desde el panel analytics una línea mínima, una máxima y una promedio
+	para el gráfico de línea de las facturas.
+
+
+5- Interactuar con los distintos gráficos para observar por países como se han
+	comportado las facturas.
+	
+
+
+
