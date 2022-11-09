@@ -1,0 +1,102 @@
+
+
+Sobre la base de datos Accidentes de tránsito en Francia:
+
+5 tablas:
+	- Vehicles: Vehiculos
+		* Num_Acc
+		* senc
+		* Category_Vehicle
+		* occutc 
+		* obs
+		* obsm
+		* choc
+		* manv 
+		* num_veh
+	
+	- User: Usuarios
+		* Num_Acc
+		* place 
+		* UserCategory
+		* SeverityofAccident
+		* Sex 
+		* Route 
+		* SecurityEquipament 
+		* Location_Pederastian 
+		* ActionofPederastian
+		* Pederastian_Injured
+		* Birthday
+		* num_veh
+		
+	- characteristic: Características del accidente que ocurrió
+		* Accident_ID
+		* Year
+		* Month 
+		* Day 
+		* HHMM
+		* Lum 
+		* Localization
+		* Type_of_Interseccion
+		* ATM_Conditions
+		* Type_of_Colision
+		* Postal_Adress
+		* GPS_Coding
+		* Latitud/longitud 
+		* Departament
+
+	
+	- holidays: Fechas que tienen en Francia para las vacaciones
+		* Date
+		* holiday
+	
+	- Places: Lugares
+		* Accident_ID
+		* Category_of_Road
+		* RoadNumber
+		* Traffic_Regime
+		* NumberofTrafficLane
+		* Indicator_ReservedLane
+		* SurfaceCondition
+		* Development_Infrastructure
+		* SituationoftheAccident
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
