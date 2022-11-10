@@ -1,0 +1,244 @@
+
+
+Sobre la base de datos Accidentes de tránsito en Francia:
+
+5 tablas:
+	- Vehicles: Vehiculos
+		* Num_Acc: Es el número de accidente (Accident_ID)
+		* senc
+		* Category_Vehicle: Categoría de vehículo:
+			01 - Bicicleta
+			02 - Ciclomotor <50cm3
+			03 - Carreta (Cuadriciclo con motor carrozado) (anteriormente "carreta o triciclo a motor")
+			04 - Sin uso desde 2006 (scooter registrado)
+			05 - Sin uso desde 2006 (motocicleta)
+			06 - Sin uso desde 2006 (sidecar)
+			07 - Solo VL
+			08 - Categoría no utilizada (VL + caravana)
+			09 - Categoría no utilizada (VL + remolque)
+			10 - VU solo 1,5T <= GVW <= 3,5T con o sin remolque (anteriormente VU solo 1,5T <= GVW <= 3,5T)
+			11 - Más utilizados desde 2006 (VU (10) + caravana)
+			12 - Más utilizados desde 2006 (VU (10) + tráiler)
+			13 - PL solo 3,5T
+		* occutc 
+		* obs
+		* obsm
+		* choc
+		* manv 
+		* num_veh: Identificación del vehículo retirado para cada usuario que 
+			ocupa este vehículo (incluidos los peatones que van
+			enganchados a los vehículos que los golpean) - código alfanumérico
+	
+	- User: Usuarios
+		* Num_Acc: Es el número de accidente (Accident_ID)
+		* place : Permite ubicar el lugar ocupado en el vehículo por el usuario 
+			en el momento del accidente 
+		* UserCategory : Categoría de usuario:
+			1 - Conductor
+			2 - Pasajero
+			3 - Peatón
+			4 - Peatón en patines o scooter
+		* SeverityofAccident: Gravedad del accidente: Los usuarios lesionados se 
+			clasifican en tres categorías de víctimas más los no lesionados
+			1 - ileso
+			2 - Asesinado
+			3 - Heridos hospitalizados
+			4 - Lesión leve
+		* Sex: Sexo del usuario
+			1 - Masculino
+			2 - Mujer 
+		* Route 
+		* SecurityEquipament : en 2 caracteres:
+			el primero se refiere a la existencia de un equipo de seguridad
+				1 - Cinturón
+				2 - Casco
+				3 - Dispositivo para niños
+				4 - Equipo reflectante
+				9 - Otro
+			el segundo es el uso de Equipos de Seguridad
+				1 - Sí
+				2 - No
+				3 - No determinable 
+		* Location_Pederastian Ubicación del peatón:
+			En el pavimento:
+				1 - A + 50 m del paso de peatones
+				2 - A - A 50 m del paso de peatones
+			En paso de peatones:
+				3 - Sin señalización luminosa
+				4 - Con señalización luminosa
+			Varios:
+				5 - En la acera
+				6 - Al borde
+				7 - Sobre refugio o BAU
+				8 - En contra de pasillo 
+		* ActionofPederastian: Acción del peatón:
+			Moviente
+				0 - no especificado o no aplicable
+				1 - Significado vehículo chocando
+				2 - Dirección opuesta al vehículo
+			Varios
+				3 - Cruce
+				4 - Enmascarado
+				5 - Jugar - correr
+				6 - Con animales
+				9 - Otro
+		* Pederastian_Injured : Esta variable se utiliza para especificar si el 
+			peatón lesionado estaba solo o no
+			1 - Solo 
+			2 - Acompañado
+			3 - En grupo
+		* Birthday: Año del nacimiento del usuario
+		* num_veh : Identificación del vehículo retirado por cada usuario que ocupa 
+			este vehículo (incluidos los peatones que van
+			enganchados a los vehículos que los chocan)
+		
+	- characteristic: Características del accidente que ocurrió
+		* Accident_ID: Identificador del accidente
+		* Year: Año en que ocu
+		* Month: Mes en que ocurrió el accidente  
+		* Day: Día en que ocurrió el accidente
+		* HHMM: Hora y minuto del accidente 
+		* Lum: Iluminación (condiciones de iluminación en las que ocurrió el accidente)
+			1 - Día completo
+			2 - Crepúsculo o amanecer
+			3 - Noche sin alumbrado público
+			4 - Noche con alumbrado público no encendido
+			5 - Noche con alumbrado público encendido
+		* Localization: 
+			1 - "Fuera de aglomeración" 
+			2 - "En zonas urbanizadas"
+		* Type_of_Interseccion: 
+			1 - Fuera de intersección
+			2 - Intersección en X
+			3 - Intersección en T
+			4 - Intersección en Y
+			5 - Intersección con más de 4 ramales
+			6 - Giratorio
+			7 - Lugar
+			8 - Paso a nivel
+			9 - Otra intersección
+		* ATM_Conditions: Condiciones atmosféricas:
+			1 - normal
+			2 - Lluvia ligera
+			3 - Lluvia intensa
+			4 - Nieve - granizo
+			5 - Niebla - humo
+			6 - Viento fuerte - tormenta
+			7 - Clima deslumbrante
+			8 - Tiempo nublado
+			9 - Otro
+		* Type_of_Colision: Tipo de colisión:
+			1 - Dos vehículos - frontal
+			2 - Dos vehículos - desde atrás
+			3 - Dos vehículos - por el lado
+			4 - Tres vehículos y más - en cadena
+			5 - Tres o más vehículos - colisiones múltiples
+			6 - Otra colisión
+			7 - Sin colisión
+		* Postal_Adress : Dirección postal: variable cumplimentada para 
+			accidentes ocurridos en zonas urbanizadas
+		* GPS_Coding: Codificación GPS: 1 carácter de origen:
+			M = Métropole
+			A = Antillas (Martinica o Guadalupe)
+			G = Guayana
+			R = Reunión
+			Y = Mayotte
+		* Latitud/longitud: Coordenadas geográficas en grados decimales
+		* Departament  : Código INSEE (Instituto Nacional de Estadística y 
+			Estudios Económicos) del departamento seguido
+			de un 0 (201 Corse-du-Sud - 202 Haute-Corse)
+
+	
+	- holidays: Fechas que tienen en Francia para las vacaciones
+		* Date
+		* holiday
+	
+	- Places: Lugares
+		* Accident_ID: Es el número de accidente
+		* Category_of_Road: Categoría de la vía:
+			1 - Carretera
+			2 - Carretera Nacional
+			3 - Vía Departamental
+			4 - Camino Comunal
+			5 - Fuera de la red pública
+			6 - Estacionamiento abierto al tráfico público
+			9 - otro
+		* RoadNumber : Número de ruta
+			V1 : Índice numérico del número de ruta (ejemplo: 2 bis, 3 ter etc.)
+			V2 : Índice alfanumérico de letras de la vía 
+		* Traffic_Regime : Régimen de tráfico:
+			1 - Ida
+			2 - Bidireccional
+			3 - Calzadas separadas
+			4 - Con canales de asignación variable
+		* NumberofTrafficLane: Número total de carriles de circulación
+		* Indicator_ReservedLane : Indica la existencia de un carril reservado, 
+			independientemente de que el accidente se produzca o no en dicho carril.
+			1 - Carril bici
+			2 - Banco de ciclos
+			3 - Canal reservado
+		* SurfaceCondition: estado de la superficie
+			1 - normal
+			2 - mojado
+			3 - charcos
+			4 - inundado
+			5 - nieve
+			6 - barro
+			7 - helado
+			8 - grasa - aceite
+			9 - otro
+		* Development_Infrastructure : Desarrollo - Infraestructura:
+			1 - Subterráneo - túnel
+			2 - Puente - autoponte
+			3 - Intercambiador o abrazadera de conexión
+			4 - Ferrocarril
+			5 - Cruce de caminos arreglado
+			6 - Zona peatonal
+			7 - Zona de peaje
+		* SituationoftheAccident : Situación del accidente:
+			1 - En el camino
+			2 - En banda de parada de emergencia
+			3 - Al borde
+			4 - En la acera
+			5 - En carril bici
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

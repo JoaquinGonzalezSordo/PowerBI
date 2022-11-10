@@ -1,0 +1,169 @@
+Ejemplos TEMA 4
+
+Usando el fichero "Dataset_curso_PBI.xlsx"
+
+1- En la tabla "clientes" tenemos una columna para la ciudad y otra para el país.
+	Se nos ha pedido que tengamos en una sola columna ambas informaciones.
+	
+	Ciudad_País = [Ciudad] & ", " & [País]
+
+Doy a nueva columna 
+En el cuadrodialogo de funciones escribo: Ciudad_pais = Clientes[Ciudad] & ", " & Clientes[País]
+
+2- En la tabla "facturas", cree una columna calculada que nos diga el porcenteje
+	de impuestos. (ejemplo de la diapositiva)
+	
+	% de impuestos = DIVIDE(Facturas[Impuestos],Facturas[ImporteFactura],0)
+	Cambiar tipo de datos a porcentaje
+
+Doy a nueva columna
+% Impuestos = DIVIDE(Facturas[Impuestos],Facturas[ImporteFactura],0)
+En cinta de opciones doy a formato porcentaje
+
+	
+3- Hacer una tabla calendario usando la función "CALENDARAUTO()"
+	NOTA: En este caso funcionará bien, pero si se trata de una base de datos,
+	por ejemplo con fechas de nacimiento, power bi lo que hará es coger desde
+	la primera fecha que encuentre hasta la última.
+
+Inicio -> Nueva tabla
+Calendario = CALENDARAUTO()
+[coge la 1a fecha que tengamos hasta la ultima]
+
+
+4- Ahora haremos otra tabla calendario, pero usando la función CALENDAR(),
+	que tendremos que pasarle una fecha de inicio y otra de fin. Usaremos
+	para esto dos funciones (MIN y MAX) para tomar la menor fecha de las 
+	facturas y la mayor de los cobros.
+
+Inicio -> Nueva tabla
+Calendario_real = CALENDAR(min(Facturas[FechaFactura]),MAX(Cobros[FechaCobro]))
+	
+		a) Como en este ejemplo las horas no son necesarias, cambiemos el formato a
+		"*3/14/2001 (Short Date)"
+En cinta de opciones Formato shortdate
+	
+		b) Cambiemos el nombre de la columna, le pondremos "Fecha"
+    Nueva columna
+Fecha = Calendario_real[Date]
+	
+		c) Crear columna "Año".
+Nueva columna
+año = year(Calendario_real[Fecha])		
+año2 = Calendario_real[Fecha].[Año]
+
+Cuidado con esta año3 = Calendario_real[Fecha] y cambiar formato a año pues internamente es un valor de fecha y hora
+		d) Crear columna "Mes". 
+Mes = month(Calendario_real[Fecha])
+		
+		e) Crear columna "@Mes". (Esta es el mes el letra, usando la funcion FORMAT)
+		Fmes = format(Calendario_real[Fecha],"mmmm")
+		f) Crear columna "Día".
+
+Dia = day(Calendario_real[Fecha])
+		
+		g) Crear columna "diasem", que comience por lunes.
+diasem = WEEKDAY(Calendario_real[Fecha],2)
+		
+		h) Crear columna "fdiasem", pero con los nombres (usando FORMAT)
+fdiasem = FORMAT(Calendario_real[Fecha],"dddd")
+		
+		i) Crear columna "# Trimestre".
+
+		
+		j) Crear columna "# Semestre".
+		
+		k) Crear columna "Semestre", o sea: que diga primero o segundo
+semestrif = IF(Calendario_real[Mes]<7,
+                "Primer semestre",
+                    "segundo semestre")
+		
+trimif = if(Calendario_real[trimestre]=1, "primertrimestre",
+                    if(Calendario_real[trimestre]=2, "segundotrimestre",
+                      if(Calendario_real[trimestre]=3, "tercertrimestre",
+                       "cuartotrimestre"
+                       )
+                    )
+            )
+	
+	Sol4_Calendario = CALENDAR(MIN(Facturas[FechaFactura]),MAX(Cobros[FechaCobro]))
+	
+	Año = YEAR(Sol4_Calendario[Fecha])
+	
+	# Mes = FORMAT(Sol4_Calendario[Fecha],"mmm")
+	
+	Mes = MONTH(Sol4_Calendario[Fecha])
+	
+	Día = DAY(Sol4_Calendario[Fecha])
+	
+	# Día de la Semana = WEEKDAY(Sol4_Calendario[Fecha],2)
+	
+	Día de la Semana = FORMAT(Sol4_Calendario[Fecha],"dddd")
+	
+	# Trimestre = QUARTER(Sol4_Calendario[Fecha])
+	
+	# Semestre = ROUNDUP(Sol4_Calendario[# Mes]/6, 0)
+	
+	Semestre = IF(Sol4_Calendario[# Semestre]=1, "Primero", 
+                IF(Sol4_Calendario[# Semestre]=2, "Segundo"))
+
+5- Una vez que tengamos la tabla, debemos relacionarla con nuestra tabla principal, 
+	en este caso "facturas".
+
+En la vista modelo unimos las tablas
+
+6- Crear ahora una jerarquía en la tabla calendario.
+
+en campos bot derecho crear jerarquiia cambiar nombre en año, fmes dia doy a agregar a jerarquia
+
+7- Verificamos ahora las visualizaciones que hicimos en el tema anterior para ver
+	si han sufrido modificaciones. En caso de que si, volver a poner el campo 
+	Mes del eje x, pero ahora usando la tabla calendario.
+
+
+
+8- Crear una medida en la tabla "Facturas" que calcule el importe total de las facturas
+	
+Voy a Vista datos, me sitúo en tabla facturas y en cinta de opciones doy a nueva medida
+  
+ 
+	Importe Total de Facturas = SUM(Facturas[ImporteFactura])
+La guarda en vista Campos creando un nuevo objeto en forma calculadora
+
+9- Crear otra medida que almacene la cantidad total de facturas.
+
+	Numero de Facturas = COUNT(Facturas[ID_Factura])
+
+10- Ahora vamos a crear una nueva página del informe y copiaremos el gráfico combinado
+	de línea y barras que tenemos en el TEMA 3 que nos muestra el importe de factura 
+	por mes y la cantidad.
+	
+		a) Pegaremos este gráfico en esta nueva página.
+		b) En los valores del gráfico de línea vamos a reemplazar la columna que hemos 
+			puesto y pondremos la nueva medida calculada (importe Total de Factura).
+		c) Lo mismo haremos con los varlores del gráfico de barra: lo reemplazamos 
+			por la medida que calcula el número de Facturas.
+	NOTA: Con este ejemplo podemos ver que internamente power bi hace medidas para 
+		dibujar los gráficos.
+
+11-  Crear una medida que calcule el importe promedio de facturas, usando las medidas
+	anteriores.
+Importe promedio fact = Facturas1[Importe total de facturas]/Facturas1[Cant total facturas]
+
+12- ¿Cómo podemos visualizar este número en el informe?
+	Crea una visualización que nos muestre esta medida
+	
+	Solución:
+		Mediante una tarjeta. Arrastramos la medida.
+		
+
+
+
+
+
+
+
+- Crear una tabla vacia para medidas
+	
+
+ 

@@ -1,0 +1,59 @@
+Ejercicios TEMA 3
+
+Usando la base de datos	TSQL2012 que tenemos en el servidor de SQL Server:
+DESKTOP-RVKF6QU (En cada ordenador es distinto):
+
+1- Haga un gráfico circular que represente por año la cantidad vendida.
+	NOTA: Usar la tabla "Sales OrderTotalsByYearsCustShip"
+	a) Configura la leyenda en la parte superior izquierda.
+	b) Escribe en "negrita" los valores del gráfico.
+             fORMATO VISUAL -> oBJETO VISUAL -> Etiquetas de detalles -> Valores
+
+2- Haga un gráfico combinado (columna y línea) que represente por año la cantidad de 
+	productos vendidos en las barras y las ventas en la linea. Agregue una leyenda
+	por la compañía de envío ()
+	NOTA: Usar la tabla "Sales OrderTotalsByYearsCustShip"
+	
+	a) Cambia las líneas de cuadrícula horizontales en guiones de color negro.
+	b) Cambia el título del gráfico a: "Cantidad y dinero por Año de venta y 
+	Compañía de envío".
+
+3- Hacer un gráfico de áreas apiladas que represente las ventas mensuales
+	para cada año.
+
+
+4- Haga un gráfico de columnas agrupadas para mostrar la cantidad de pedidos 
+	clasificados por países. Representa la línea de máximo en ese gráfico (Vista Analytics). Eje x año
+	a) Cambia el nombre de la leyenda a: "País de envío".
+	b) Cambie el nombre del título a: "Recuento de pedidos por año y país de envío".
+	c) Cambie el fondo del gráfico a negro con una transparencia del 50%.
+              En Vista Formato visual -> General -> Efectos
+	d) Cambie a blanco el color de TODOS los textos del gráfico (Leyenda, ejes,
+	valores, etc) y la línea de máximo creada.
+
+5- Cambie el nombre de la página del informe y llámele: "TEMA3_Visualizaciones" 
+En la pestaña de abajo cambiar Pagina 1 por TEMA3_Visualizaciones
+
+6- Crear una nueva página llamada: "TEMA3_Respuestas".
+
+7- Insertaremos un cuadro de texto del tamaño de toda la página.
+	a) Configura el fondo negro y la letra blanca.
+
+8- Apoyándose de la información que aportan los gráficos anteriores, responda
+	a estas cuestiones dentro del cuadro de texto añadido y haga explique brevemente
+	en qué gráfico se puede ver mejor cada información:
+		a) ¿Cual fue el año con mayor pedidos?
+                     
+		b) ¿Qué país ha tenido la mayor cantidad de pedidos?
+
+		c) Del país mencionado en el apartado anterior, diga cuántos pedidos hizo.
+
+		d) ¿En todos los años, hubo ventas todos los meses? 
+
+
+	
+
+
+
+
+	

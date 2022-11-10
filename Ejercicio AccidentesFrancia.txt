@@ -1,0 +1,92 @@
+
+
+Ejercicio práctico:
+
+1- Cargaremos los ficheros csv:
+	users
+	vehicles
+	caracteristics
+	holidays
+	places
+
+Ahora transformaremos los datos, usando el editor de consulta 
+
+2- Eliminemos las columnas que no vamos a necesitar:
+	a) De la tabla "caracteristics" eliminar la columna "GPS_Coding"
+	b) De la tabla "Vehicles" eliminar todas excepto "Num_Acc" y "Category_Vehicle"
+
+3- De la tabla "Vehicles", obtener el valor de "Category_Vehicle" para colocarlo 
+	en la tabla "caracteristics".
+	NOTA: No queremos una tabla adicional, SOLO traer el campo necesario para
+		la tabla "caracteristics"
+
+4- La empresa nos ha entregado otro fichero de datos con accidentes ocurridos
+	en el 2017 y queremos incluirlos a nuestra base histórica 2005-2016.
+		a) Cargar fichero "caracteristics - complemento2017"
+		b) Añadir los registros de esta tabla a la tabla "caracteristics"
+		c) Verifique que hizo lo correcto filtrando la columna "Year" de la 
+			tabla "caracteristics" por el número 17 que es el año 2017.
+		d) Una vez mostrados los registros del año 2017, deshacemos los cambios 
+			para volver a tener todos los registros.
+
+5- Antes de continuar, echemos un vistazo a las relaciones. ¿Están relacionadas
+	las tablas? En caso de no estarlo, cree las relaciones que faltan.
+
+6- Ahora queremos separar los datos de la columna "Latitud/longitud" en dos
+	columnas diferentes, una para la Latitud y con dicho nombre y de igual 
+	otra para la Longitud.
+
+7- Nuestra empresa cliente, nos ha dado la siguiente información:
+	En la tabla "users" hay una columna llamada "SecurityEquipment". En ella se 
+	encuentran dos dígitos concatenados. Uno hace referencia a la existencia de
+	equipo de seguridad de la siguiente forma:
+		1- Belt (Cinturón)
+		2- Helmet (Casco)
+		3- Children's device (Silla de niño)
+		4- Reflective equipment (Equipo reflectante)
+		9- Other (Otro)
+	Y el otro dígito al uso de estos equipos:
+		1- Yes 
+		2- No
+		3- Not determinable
+	Nos piden que tengamos estas dos informaciones en distintas columnas, una
+	con el "Equipamiento de Seguridad" y la otra con el "Equipo de Seguridad 
+	Utilizado".
+	
+8- Ahora queremos tener en la tabla "users" una nueva columna que nos
+	diga si el equipo de seguridad fue utilizado.
+	
+9- Reemplazar los errores por algo con sentido (por ejemplo por 0)
+
+
+En este punto, continuaremos haciendo transformaciones necesarias, pero usando
+el lenguaje DAX
+
+10- Haga una columna que muestre la edad del conductor en el momento del accidente.
+	Sugerencias: Use la función LEFT para sacar el año del accidente en el campo
+		"Num_Acc" y cambie el tipo de datos.
+	a) Hay valores raros en esta nueva columna? ¿En caso de que hayan analiza
+	por qué?
+	b) Crea otra columna con la edad real, o sea, resolviendo el problema que 
+	encontramos en el apartado anterior.
+	
+11- Con vista a las visualizaciones que nos han pedido nuestros clientes, necesitamos
+	tener una columna de fecha en la tabla características. Crea esta columna 
+	usando los datos correspondientes. (Use la funcion DATE)
+	
+	a) Si observa que esta columna nos muestra la hora, cambie el formato al de
+		"fecha corta".
+	b) Como podemos observar, tenemos otro problema. Los años de los accidentes
+		los está tomando desde 1900. Para resolver esto, haga lo mismo que hicimos
+		en el ejercicio anterior (usando LEFT) y cree otra columna con la fecha real
+		integrando todas estas funciones.
+
+12- Crea ahora una tabla calendario usando la columna de fecha creada.
+	
+	a) Crea una jerarquía llamada "Tiempo" (tendrás que crear columnas de año, mes, día, etc)
+	b) Relaciona la tabla de calendario con la tabla de características.
+
+13- Represente en un gráfico circular los accidentes por año 
+
+
+
